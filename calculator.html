@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        .heading{
+    text-align: center;
+}
+
+.keys{
+    align-items:center;
+    text-align: center;
+    flex-direction: column;
+    flex: auto;
+}
+
+.row{
+    padding: 1px;
+    margin: 3px 3px;
+    cursor: pointer;
+}
+
+.button{
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 16px;
+}
+
+.text{
+    border: 3px solid black;
+    padding: 5px;
+
+}
+
+#ac{
+    border-color: rgb(232, 184, 112);
+    background-color: rgb(249, 96, 54);
+}
+
+#equal{
+    border-color: #2098e2;
+    background-color: rgb(18, 203, 240);
+}
+
+#icon{
+    border-color: #0a8ee0;
+    background-color: rgb(176, 238, 251);
+}
+#box{
+    margin-top: 1%;
+    margin-bottom: 10%;
+    margin-left: 30%;
+    margin-right: 30%;
+    height: 400px;
+    background-color: rgb(234, 214, 208);
+    box-shadow: 4px 5px 25px 5px rgb(239, 6, 14);
+    word-spacing: 2px;
+}
+
+
+    </style>
+</head>
+<body>
+    <h1 class="heading">Wellcome to calculator</h1>
+    <br>
+    <br>
+    <form name="cals">
+    <div class="keys" id="box">
+        <input id="theme" type="button" value="" onclick="theme()">
+        <br><br><br>
+        <div class="input">
+            <input class="text" type="text" name="number" id="number" placeholder="0">
+        </div>
+        <br>
+        <div class="row">
+            <input class="button" type="button" id="ac" value="AC" onclick="number.value=''">
+            <input class="button" type="button" id="icon" value="(" onclick="cals.number.value+='('">
+            <input class="button" type="button" id="icon" value=")" onclick="cals.number.value+=')'">
+            <input class="button" type="button" id="icon"  value="/" onclick="cals.number.value+='/'">
+        </div>
+        <div class="row">
+            <input class="button" type="button" value="7" onclick="cals.number.value+='7'">
+            <input class="button" type="button" value="8" onclick="cals.number.value+='8'">
+            <input class="button" type="button" value="9" onclick="cals.number.value+='9'">
+            <input class="button" type="button" id="icon" value="X" onclick="cals.number.value+='*'">
+        </div>
+
+        <div class="keys">
+            <div class="row">
+                <input class="button" type="button" value="4" onclick="cals.number.value+='4'">
+                <input class="button" type="button" value="5" onclick="cals.number.value+='5'">
+                <input class="button" type="button" value="6" onclick="cals.number.value+='6'">
+                <input class="button" type="button" id="icon" value="-" onclick="cals.number.value+='-'">
+            </div>
+
+            <div class="keys">
+                <div class="row">
+                    <input class="button" type="button" value="1" onclick="cals.number.value+='1'">
+                    <input class="button" type="button" value="2" onclick="cals.number.value+='2'">
+                    <input class="button" type="button" value="3" onclick="cals.number.value+='3'">
+                    <input class="button" type="button" id="icon" value="+" onclick="cals.number.value+='+'">
+                </div>
+
+                <div class="keys">
+                    <div class="row">
+                        <input class="button" type="button" value="%" onclick="cals.number.value+='%'">
+                        <input class="button" type="button" value="0" onclick="cals.number.value+='0'">
+                        <input class="button" type="button" value="." onclick="cals.number.value+='.'">
+                        <input class="button" id="equal" type="button" value="=" onclick="cals.number.value=eval(cals.number.value)">
+                    </div>
+    </div>
+</form>
+<script defer>
+    // function theme(){
+    //     // document.getElementById(box).style.background="black";
+    //     body.style.background = 'white';
+    //     body.style.color = 'black';
+    // }
+
+    const theme = document.getElementById('theme');
+    const body = document.querySelector('body');
+    
+    theme.addEventListener('click',function(){
+        if(theme()){
+            body.style.background = 'white';
+            body.style.color ='black';
+        }else{
+            body.style.background = 'black';
+            body.style.color ='white';
+        }
+    })
+</script>
+</body>
+</html>

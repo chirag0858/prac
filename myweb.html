@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myweb</title>
+    <style>
+    form{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 40%;
+}
+#submit{
+    left: 100px;
+    color: rgb(14, 99, 218);
+    background-color: rgb(206, 229, 229);
+    border: 3px solid rgb(206, 241, 241);
+    border-radius: 5px;
+}
+#submit:hover{
+    color: rgb(194, 217, 217);
+    background-color: rgb(49, 128, 212);
+}
+#passerror,#usererror{
+    font-family: monospace;
+    color: red;
+    font-style: oblique;
+}
+.username,.password{
+    color: blueviolet;
+}
+
+.box{
+    margin-top: 5%;
+    margin-bottom: 10%;
+    margin-left: 30%;
+    margin-right: 30%;
+    height: 400px;
+    background-color: rgb(217, 247, 248);
+    box-shadow: 4px 5px 25px 5px rgb(163, 39, 234);
+    word-spacing: 2px;
+}
+h1{
+    color: rgb(190, 21, 251);
+    font-family: sans-serif;
+    font-style: initial;
+}
+
+#show_password:hover{
+
+    color: red;
+}
+.sp{
+    color: rgb(172, 51, 77);
+}
+    </style>
+</head>
+<body class="box">
+    <form  method="post" name="myform" onsubmit="return validation()">
+        <div class="heading">
+            <h1>LOGIN HERE</h1>
+        </div>
+        <div class="username">
+            <p class="head"><b>Username :</b> </p>
+            <input type="text" name="username" id="username" placeholder="enter your username here" required autocomplete="off">
+            <br>
+            <b><span class="usererror" id="usererror"></span></b>
+        </div>
+        <div class="password">
+            <p><b>Password :</b> </p>
+            <input type="password" name="password" id="password" placeholder="enter valid password" required autocomplete="off">
+            <br>
+            <b><span class="passerror" id="passerror"></span></b>
+        </div>
+            <br>
+            <input type="checkbox" name="show password" id="show_password" onclick="Toggle()" value="show password"><span class="sp">show Password</span>
+            <br>
+            <input type="submit" value="LOGIN"id="submit" onclick="submit()">
+    </form>
+    <script type="text/javascript">
+        function validation(){
+            var user = document.getElementById('username').value;
+            var pword = document.getElementById('password').value;
+            var currect_way = /^[A-Za-z]+$/;
+            if (user.length<3 ){
+                document.getElementById('usererror').innerHTML = "*username is too short !";
+                alert("Username is too short !")
+                return false;
+            }
+
+            if (user.length>15){
+                document.getElementById('usererror').innerHTML = "*username is too long !";
+                alert("*username is too long !")
+                return false;
+            }
+            if (user.match(currect_way))
+                true;
+                else{
+                document.getElementById('usererror').innerHTML = "*Only Alphabets are allowed !";
+                alert("*Only Alphabets are allowed !")
+                return false;
+            }
+             
+            if (pword.length<5 || pword.length>18){
+                document.getElementById('passerror').innerHTML = "* password length should be between 5 to 18";
+                alert("* password length should be between 5 to 18")
+                return false;
+            }
+            
+        }
+
+        function Toggle(){
+            var show = document.getElementById('password');
+            if(show.type=='password'){
+                show.type='text';
+
+            }
+            else{
+                show.type='password';
+            }
+        }
+
+        function submit(){
+            alert("Done !");
+        }
+    </script>
+</body>
+</html>
