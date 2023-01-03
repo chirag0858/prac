@@ -69,7 +69,6 @@
     <br>
     <form name="cals">
     <div class="keys" id="box">
-        <input id="theme" type="button" value="" onclick="theme()">
         <br><br><br>
         <div class="input">
             <input class="text" type="text" name="number" id="number" placeholder="0">
@@ -113,25 +112,5 @@
                     </div>
     </div>
 </form>
-<script defer>
-    // function theme(){
-    //     // document.getElementById(box).style.background="black";
-    //     body.style.background = 'white';
-    //     body.style.color = 'black';
-    // }
-
-    const theme = document.getElementById('theme');
-    const body = document.querySelector('body');
-    
-    theme.addEventListener('click',function(){
-        if(theme()){
-            body.style.background = 'white';
-            body.style.color ='black';
-        }else{
-            body.style.background = 'black';
-            body.style.color ='white';
-        }
-    })
-</script>
 </body>
 </html>
